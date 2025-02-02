@@ -58,6 +58,42 @@ class CarTest {
         assertEquals(0, saab.currentSpeed);
     }
     @Test
+    void testIncrementSpeed() {
+        Volvo240 volvo240 = new Volvo240();
+        double startSpeed = volvo240.getCurrentSpeed();
+        volvo240.incrementSpeed(0.3);
+        double efterIncr = volvo240.getCurrentSpeed();
+        assert (startSpeed < efterIncr);
+    }
+
+    @Test
+    void testDecrementSpeed() {
+        Volvo240 volvo240 = new Volvo240();
+        volvo240.startEngine();
+        double startSpeed = volvo240.getCurrentSpeed();
+        volvo240.decrementSpeed(0.8);
+        double efterIncr = volvo240.getCurrentSpeed();
+        assert (startSpeed > efterIncr);
+    }
+
+    @Test
+    void gas() {
+        Volvo240 volvo240 = new Volvo240();
+        double startSpeed = volvo240.getCurrentSpeed();
+        volvo240.gas(0.2);
+        double efterSpeed = volvo240.getCurrentSpeed();
+        assert(startSpeed < volvo240.getCurrentSpeed());
+    }
+    @Test
+    void brake() {
+        Volvo240 volvo240 = new Volvo240();
+        volvo240.startEngine();
+        double startSpeed = volvo240.getCurrentSpeed();
+        volvo240.brake(0.5);
+        double efterSpeed = volvo240.getCurrentSpeed();
+        assert(startSpeed > efterSpeed);
+    }
+    @Test
     void testMove() {
         Saab95 saab = new Saab95();
         saab.direction = "North";
