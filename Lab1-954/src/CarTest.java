@@ -77,7 +77,7 @@ class CarTest {
     }
 
     @Test
-    void gas() {
+    void testGas() {
         Volvo240 volvo240 = new Volvo240();
         double startSpeed = volvo240.getCurrentSpeed();
         volvo240.gas(0.2);
@@ -85,7 +85,7 @@ class CarTest {
         assert(startSpeed < volvo240.getCurrentSpeed());
     }
     @Test
-    void brake() {
+    void testBrake() {
         Volvo240 volvo240 = new Volvo240();
         volvo240.startEngine();
         double startSpeed = volvo240.getCurrentSpeed();
